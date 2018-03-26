@@ -1,0 +1,17 @@
+import netmiko
+
+#import netmiko library..It is a wrapper for paramiko
+#dir(netmiko) to see all methods supported bvy netmiko
+# We need to use ConnectionHandler metho
+
+connection = netmiko.ConnectionHandler(ip='10.1.50.1', device_type='cisco_ios' , username='cisco', passowrd='cisco123')
+
+#to verify the connection object ic created
+#>>> connection
+#<netmiko.cisco.cisco_ios.CiscoIosSSH object at 0x7f5a2daec37d0>
+
+# to see all the methods supported by this object----> dir(conenction)
+
+connection.send_command('show ip int br | inc up')
+
+#to print output in a readable format----> print(connection.send_command('show ip int br | inc up'))
